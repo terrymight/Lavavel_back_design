@@ -1,4 +1,4 @@
-# Larave Investment Backend API
+# Laravel Investment Backend API
 
 ## Laravel Investment (IBA)
 
