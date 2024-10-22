@@ -20,6 +20,34 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 If you discover a security vulnerability within Laravel Investment (IBA), please send an e-mail to the developer via [hello@tejirimayone.com.ng](mailto:hello@tejirimayone.com.ng). All security vulnerabilities will be promptly addressed.
 
+## Syetem Documetations
+
+### Email Verification
+
+The entire system verification is handles in
+
+-   `./vendor/laravel/framework/src/illuminate/auth/notification/VerifyEmail.php`
+
+In Model located in direction.
+./app/Models/User.php
+
+Add the following `impletment MustVerifyEmail`
+
+Created a new Mail service in
+`./app/Mail/VerificationEmail.php`
+
+### Note:
+
+-   `Remove Use serializable` for this would reset the configured Mail located in:
+
+`vendor/laravel/framework/src/illuminate/auth/Notifications/VerifyEmail.php`
+
+-   look at this location of files for more features
+
+`./vendor/laravel/framework/src/illuminate/auth/MustVerifyEmail.php`
+
+`./vendor/laravel/framework/src/illuminate/contracts/auth/MustVerifyEmail.php`
+
 ## License
 
 The Laravel is a property of this repo do not copy or modify with the consent of the owner.
