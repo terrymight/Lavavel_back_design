@@ -20,19 +20,26 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): Response
+    // public function store(Request $request): Response
+    public function store(Request $request)
     {
+
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
+        // $user['browser_language'] = $request->header('browser_language', env('APP_LOCALE'));
+        // $user['browser_language'] = $request->header('Accept-Language');
+
         $user = User::create([
             'name' => $request->name,
+            'browser_language' => $request->header('Accept-Language', env('APP_LOCALE')),
             'email' => $request->email,
             'password' => Hash::make($request->string('password')),
         ]);
+
 
         // Mail::to($request->email)->sendNow(new VerificationEmail($user));
 
@@ -42,5 +49,8 @@ class RegisteredUserController extends Controller
         // Auth::login($user);
 
         return response()->noContent();
+
+        // dd($request);
+        // return view('sysview.sysview');
     }
 }

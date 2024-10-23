@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisteredUserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -8,6 +9,10 @@ Route::get('/', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::get('webmail', function () {
-    return view('emails.verifyEmail');
-});
+// Route::get('webmail', function () {
+
+//     return view('sysview.form');
+// });
+
+// Demo route
+// Route::post('/forms', [RegisteredUserController::class, 'store'])->name('forms');

@@ -40,7 +40,7 @@ class VerificationEmail extends Mailable implements ShouldQueue
             replyTo: [
                 new Address(env('MAIL_FROM_ADDRESS'), env('APP_NAME'))
             ],
-            subject: Lang::get('Verify Email Address', [], 'pt_BR', 'pt_BR'),
+            // subject: Lang::get('Verify Email Address', [], 'pt_BR', 'pt_BR'),
         );
     }
 

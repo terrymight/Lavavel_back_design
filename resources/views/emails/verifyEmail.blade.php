@@ -157,12 +157,16 @@
     <div class="container">
         <!-- Header Section -->
         <div class="header">
-            <h1>Verify Your Email Address</h1>
+            <h1>
+                {{-- __({!! $title !!}) --}}
+                {{ Lang::get('Verify Your Email Address', [], $lang) }}
+                {{-- {!! !!} --}}
+            </h1>
         </div>
 
         <!-- Content Section -->
         <div class="content">
-            <p>Hello {!! $name !!},</p>
+            <p>{!! Lang::get('Hello, ') !!} {!! $name !!},</p>
             <p>Thank you for registering with us! Please verify your email address by clicking the button below.</p>
 
             <div class="button-top">
