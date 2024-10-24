@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "laravel-lang/common": "^6.3",
+        "laravel-lang/json-fallback": "^2.1",
         "laravel/framework": "^11.9",
         "laravel/sanctum": "^4.0",
         "laravel/tinker": "^2.9"
@@ -14,6 +15,7 @@
     "require-dev": {
         "fakerphp/faker": "^1.23",
         "laravel-lang/lang": "^15.8",
+        "laravel-lang/publisher": "^16.4",
         "laravel/breeze": "^2.2",
         "laravel/pail": "^1.1",
         "laravel/pint": "^1.13",

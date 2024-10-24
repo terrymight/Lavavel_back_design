@@ -159,30 +159,62 @@
         <div class="header">
             <h1>
                 {{-- __({!! $title !!}) --}}
-                {{ Lang::get('Verify Your Email Address', [], $lang) }}
+                {{ Lang::get('Verify Email Address', [], $lang, true) }}
                 {{-- {!! !!} --}}
             </h1>
         </div>
 
         <!-- Content Section -->
         <div class="content">
-            <p>{!! Lang::get('Hello, ') !!} {!! $name !!},</p>
-            <p>Thank you for registering with us! Please verify your email address by clicking the button below.</p>
+            {{-- <p>{!! Lang::get('Hello, ') !!} {!! $name !!},</p> --}}
+            <p>{!! Lang::get('Hello!, ', [], $lang, true) !!} {!! $name !!},</p>
+            <p>
+                {!! Lang::get(
+                    'Thank you for registering with us! Please verify your email address by clicking the button below.',
+                    [],
+                    $lang,
+                    true,
+                ) !!}
+            </p>
 
             <div class="button-top">
                 <!-- Verification Button -->
-                <a href="{!! $url !!}" class="button">Verify Email Address</a>
+                {{-- <a href="{!! $url !!}" class="button">Verify Email Address</a> --}}
+                <a href="{!! $url !!}" class="button">
+                    {{ Lang::get('Verify Email Address', [], $lang, true) }}
+                </a>
             </div>
 
-            <p>If you did not create an account, no further action is required.</p>
+            <p>
+                {!! Lang::get('If you did not create an account, no further action is required.', [], $lang, true) !!}
 
-            <p>Best regards, <br> The {{ config('app.name') }} Team</p>
+            </p>
+
+            <p>
+                {{ Lang::get('Best regards', [], $lang, true) }},
+                <br>
+                {{ Lang::get('The', [], $lang, true) }}
+                {{ config('app.name') }}
+                {{ Lang::get('Team', [], $lang, true) }}
+            </p>
         </div>
 
         <div class="footer-area">
-            <p>
+            {{-- <p>
                 If you're having trouble clicking the "Verify Email Address" button, copy and paste the URL below into
                 your web browser: <a href="{!! $url !!}">{!! $url !!}</a>
+            </p> --}}
+
+            <p>
+                {!! Lang::get(
+                    'If you are having trouble clicking the Verify Email Address button, copy and paste the URL below into your web browser',
+                    [],
+                    $lang,
+                    true,
+                ) !!}:
+                <a href="{!! $url !!}">
+                    {!! $url !!}
+                </a>
             </p>
         </div>
 
@@ -190,8 +222,9 @@
         {{-- {{ $verificationUrl }} --}}
         <div class="footer">
             <p>
-                This email was sent to you because you created a {{ env('APP_NAME') }} account with your email address.
-                If you do not wish to receive email from {{ env('APP_NAME') }}
+                {!! Lang::get('This email was sent to you because you created a', [], $lang, true) !!} {{ env('APP_NAME') }}
+                {!! Lang::get('account with your email address. If you do not wish to receive email from', [], $lang, true) !!} {{ env('APP_NAME') }}
+
             </p>
 
 
@@ -202,7 +235,7 @@
 
             <span>
                 &#169; {{ date('Y') }} {{ config('app.name', 'Laravel') }} | <a href="http://" target="_blank"
-                    rel="noopener noreferrer">Unsubscribe here</a>
+                    rel="noopener noreferrer">{!! Lang::get('Unsubscribe here', [], $lang, true) !!}</a>
             </span>
         </div>
 

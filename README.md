@@ -26,10 +26,13 @@ If you discover a security vulnerability within Laravel Investment (IBA), please
 
 The entire system verification is handles in
 
--   `./vendor/laravel/framework/src/illuminate/auth/notification/VerifyEmail.php`
+-   Email notification class is at `./app/Notification/UserVerification.php`
 
-In Model located in direction.
-./app/Models/User.php
+-   And it blade view in './resources/views/emails/VerifyEmail.blade.php'
+
+-   With Queueable trait
+
+-   In Model located in direction ./app/Models/User.php' which I impletemented MustVerify Class.
 
 Add the following `impletment MustVerifyEmail`
 

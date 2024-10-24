@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Mail\VerificationEmail;
 use App\Models\User;
+use App\Notifications\UserVerification;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -43,7 +44,10 @@ class RegisteredUserController extends Controller
 
         // Mail::to($request->email)->sendNow(new VerificationEmail($user));
 
-        event(new Registered($user));
+        //event(new Registered($user));
+        //event(new UserVerification($user));
+
+        $user->notify(new UserVerification($user));
 
         // disabled user login
         // Auth::login($user);
